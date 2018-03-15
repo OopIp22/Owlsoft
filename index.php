@@ -86,6 +86,13 @@
         function makeaction(){
             document.getElementById('btn_submit').disabled = false;  
         }
+    <?php
+        if (isset($_GET["error"])){
+    echo "window.onload = function(){
+    $('#signin').trigger('click')
+    }";
+        }
+            ?>
     </script>
     <style>
    #myList li{ display:none;
@@ -132,7 +139,7 @@
             echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Logout</a>";
         }else{
-            echo "<a href='#' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign in</a><br>";
+            echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign in</a><br>";
             echo "<a href='#' style='float:right;'>Register</a>";
         }
             ?>
@@ -143,13 +150,18 @@
 				<div class="loginmodal-container">
 					<h1>Sign in</h1><br>
 				  <form action="checkLogin.php" method="post">
+                      <?php
+                      if (isset($_GET["error"])){
+                          echo "<div style='color: red;'>Username หรือ Password ไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</div>";
+                      }
+                      ?>
 					<input type="text" name="user" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
 					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign in" disabled>
 				  </form>
 					
 				  <div class="login-help info">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+					<a href="#">Forgot Password</a>
 				  </div>
                      <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6Lc3oUwUAAAAAOCSkSybN7_kMHFVbzflx-ysw4Ek"></div>
 				</div>
