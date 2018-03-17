@@ -1,12 +1,37 @@
 <?php
     include "connect.php";
      $news_id = $_GET['news_id'];
-    $result = $pdo->query("SELECT beauty_community.news_id,topic,news_detail,imgName,date FROM beauty_community,img_news WHERE beauty_community.news_id = '$news_id' AND beauty_community.news_id = img_news.news_id");
-    $next = $news_id +1;
-    $previous = $news_id -1;
-    
+    $result = $pdo->query("SELECT news_id FROM beauty_community");
+    $id = 0;
+    $array[] = 0;
+    $thispage = 0;
+    while($row = $result->fetch()){
+       $array[$id] = $row["news_id"];
+        $id++;
+    }
+    for($i=0;$i < sizeof($array);$i++){
+        if($array[$i] == $news_id){
+            $thispage = $i;
+        }
+    }
+    for($j=$thispage;$j < sizeof($array);$j++){
+        if($array[$j] == $news_id){
+            $next = $j+1;
+            $prev = $j-1;
+        if($next == sizeof($array)){
+            $nextp = null;
+        }else{
+            $nextp = $array[$next];
+        }
+        if($prev < 0){
+            $prevp = null;
+        }else{
+            $prevp = $array[$prev];
+        }
+        }
+    }
 
-    $date = date('Y-m-d');
+     $date = date('Y-m-d');
     function DateThai($date)
 	       {
                 $strYear = date("Y",strtotime($date))+543;
@@ -16,7 +41,6 @@
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear";
 	       }
-$row = $result->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -162,12 +186,16 @@ $row = $result->fetch();
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box">
+            <?php
+            $result = $pdo->query("SELECT beauty_community.news_id,topic,news_detail,date FROM beauty_community LEFT JOIN img_news ON beauty_community.news_id = img_news.news_id WHERE beauty_community.news_id = '$news_id'");
+               $row = $result->fetch();
+                ?>
           <h4><?=$row["topic"]; ?></h4>
             <?php echo DateThai($row["date"]); ?>
           <p style="margin-top: 20px"><?=$row["news_detail"]; ?></p>
             <div class="wrap-vid">
             <?php 
-                 $result = $pdo->query("SELECT beauty_community.news_id,imgName FROM beauty_community,img_news WHERE beauty_community.news_id = '$news_id' AND beauty_community.news_id = img_news.news_id");
+            $result = $pdo->query("SELECT beauty_community.news_id,topic,news_detail,imgName,date FROM beauty_community LEFT JOIN img_news ON beauty_community.news_id = img_news.news_id WHERE beauty_community.news_id = '$news_id'");
                 while($row = $result->fetch()){
             echo "<img src='News/".$row["imgName"]."' height='100px' width='100%' class='float-left'><br><br>";
                 } 
@@ -175,8 +203,12 @@ $row = $result->fetch();
                 </div>
             <div>
                 <?php
-                echo "<a href='content.php?news_id=".$previous."' style='float:left;'>Previous</a>";
-                echo "<a href='content.php?news_id=".$next."' style='float:right;'>Next</a>";
+                if($prevp != null){
+                echo "<a href='content.php?news_id=".$prevp."' style='float:left;'>Previous</a>";
+                }
+                if($nextp != null){
+                echo "<a href='content.php?news_id=".$nextp."' style='float:right;'>Next</a>";
+                }
           
                 ?>
             </div>
