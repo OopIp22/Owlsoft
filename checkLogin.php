@@ -4,6 +4,8 @@
 
     $username = $_POST["user"];
     $password = $_POST["pass"];
+    $back = $_SERVER['HTTP_REFERER'];
+    $error = $_SERVER['HTTP_REFERER']."?&error=1";
     
 try{
     $sql = "SELECT * FROM member WHERE username = ? and password = ?";
@@ -16,11 +18,11 @@ try{
         if( $row['status'] == 'admin'){
             header("location: dashboard.php");
         }else{
-        header("location: index.php");
+        header("location: $back");
         }
        
     } else {
-        header("location: index.php?error=1");
+        header("location: $error");
     }
 }
 catch(Exception $e){
