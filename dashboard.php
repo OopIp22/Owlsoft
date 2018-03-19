@@ -1,6 +1,13 @@
 <?php
+    session_start();
     include "connect.php";
-    
+    if ( !isset($_SESSION["username"])) {
+        header("location: index.php");
+    }
+    if($_SESSION["username"] != 'admin'){
+        header("location: index.php");
+    }
+        
     $date = date('Y-m-d');
     function DateThai($date)
 	       {
@@ -11,47 +18,8 @@
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear";
 	       }
-            function make_query($pdo)
-            {
-             $result = $pdo->query("SELECT beauty_community.news_id,topic,imgNO,imgName FROM beauty_community,img_news 
-                                    WHERE beauty_community.news_id = img_news.news_id  ORDER BY news_id DESC");
-             return $result;
-            }
-                function make_slides($pdo)
-            {
-             $output = '';
-             $count = 0;
-             $result = make_query($pdo);
-            $id = 0;
-             while($row = $result->fetch())
-             {
-                 if($id != $row["news_id"]){
-              if($count == 0)
-              {
-               $output .= '<div class="item active" style="height: 400px;">';
-              }
-              else
-              {
-               $output .= '<div class="item" style="height: 400px;">';
-              }
-              
-              $output .= "
-               <a href='content.php?news_id=".$row["news_id"]."'><img src='News/".$row["imgName"]."' alt='".$row["topic"]."' /></a>
-               <div class='carousel-caption' style='font-size:28px;'>".$row["topic"]."
-                          </div>
-              </div>
-              ";
-                   $count = $count + 1;  
-                 }
-                  $id = $row["news_id"];
-              if($count == 5){
-                  break;
-              }
-             }
-             return $output;
-            }
-
-
+       
+                
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,13 +31,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
   <meta name="author" content="https://www.365bootstrap.com">
-  <title>Beauty Community</title>
+  <title>ชุมชนคนรักสวยรักงาม</title>
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <!-- Owl Carousel Assets -->
   <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
   <link href="owl-carousel/owl.theme.css" rel="stylesheet">
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/modal.css">
   <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <!-- Custom Fonts -->
@@ -80,27 +49,65 @@
   <script src="js/bootstrap.min.js"></script>
   <!-- Google reCaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
-    
-    
+
     <style>
-        ul li a{
-            color:white;
-            font-weight: bold;
-           
+   #myList li{ display:none;
+}
+#loadMore {
+    color:green;
+    cursor:pointer;
+}
+#loadMore:hover {
+    color:black;
+}
+*{
+	font-family: 'Kanit', sans-serif;
+}
+
+     .dropdown-menu {
+        min-width: 0px;
         }
-        *{
-	       font-family: 'Kanit', sans-serif;
+        #rightpanel a{
+            font-size:24px;
+            color: white;
         }
+        
+          #rightpanel a:hover{
+            font-size:24px;
+            color: #3a2822;
+        }
+
+        
     </style>
-</head>
+    <link rel="icon" href="beauty-logo.png">
+    </head>
     
 
 <body>
-  <nav id="menu" class="navbar" style="background-color:#AEE0A4;" style="margin:0 !important; padding:0 !important;">
+    <header style="margin:20px;">
+   <div class="container">
+       <div class="col-md-10">
+             <img src="beauty-logo.png" height="100px" width="100px">
+            <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
+       </div>
+    <div class="col-md-2" id="rightpanel">
+       <?php
+        if (isset($_SESSION["username"])) {
+            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
+        }
+            ?>
+       </div>
+    </div>    
+        
+  </header>
+  <nav id="menu" class="navbar container" style="background-color:#AEE0A4;">
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav float-left">
+        <li>
+          <div class="dropdown show">
        <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Home
               </a>
           </li>
@@ -124,10 +131,17 @@
  
     </div>
   </nav>
+      <div id="page-content" class="single-page container">
     <div style="background-color:white; height:900px;">
     
+    <div class="row">
+      <div id="main-content" class="col-md-12">
+        <div class="box">
+          </div>
+        </div>
     </div>
-  
+          </div>
+      </div>
   <!-- JS -->
   <script src="owl-carousel/owl.carousel.js"></script>
   <script>
