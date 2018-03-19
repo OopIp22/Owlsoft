@@ -53,7 +53,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
   <meta name="author" content="https://www.365bootstrap.com">
-  <title>Post Detail</title>
+  <title>ชุมชนคนรักสวนรักงาม</title>
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <!-- Custom CSS -->
@@ -110,15 +110,15 @@
    <div class="container">
        <div class="col-md-10">
              <img src="beauty-logo.png" height="100px" width="100px">
-            <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">Beauty Community</span></div>
+            <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
     <div class="col-md-2" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
             echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
-            echo "<a href='logout.php' style='float:right;'>Logout</a>";
+            echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
-            echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign in</a><br>";
+            echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
             echo "<a href='#' style='float:right;'>Register</a>";
         }
             ?>
@@ -142,7 +142,7 @@
 				 <div class="login-help info">
 					<a href="#">Forgot Password</a>
 				  </div>
-                     <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6Lc3oUwUAAAAAOCSkSybN7_kMHFVbzflx-ysw4Ek"></div>
+                     <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LfUIk0UAAAAANcI5VnU7DPsj9rUm-g9fSB0hgSK"></div>
 				</div>
 			</div>
            
