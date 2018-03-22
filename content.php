@@ -53,7 +53,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
   <meta name="author" content="https://www.365bootstrap.com">
-  <title>ชุมชนคนรักสวนรักงาม</title>
+  <title>ชุมชนคนรักสวยรักงาม</title>
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <!-- Custom CSS -->
