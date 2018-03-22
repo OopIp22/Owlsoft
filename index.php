@@ -131,7 +131,7 @@
    <div class="container">
        <div class="col-md-10">
              <img src="beauty-logo.png" height="100px" width="100px">
-            <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">Beauty Community</span></div>
+            <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
     <div class="col-md-2" id="rightpanel">
        <?php

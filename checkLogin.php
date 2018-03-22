@@ -15,7 +15,7 @@ try{
     $stmt->execute(); //หลังจากที่กำหนดค่าใน prepare แล้วให้เริ่มทำการประมวลผลได้
     if ($row = $stmt->fetch()) {
         $_SESSION["username"] = $row["Username"];
-        if( $row['status'] == 'admin'){
+        if( $_SESSION["username"] == 'admin'){
             header("location: dashboard.php");
         }else{
         header("location: $back");
