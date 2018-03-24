@@ -31,7 +31,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
   <meta name="author" content="https://www.365bootstrap.com">
-  <title>Beauty Community</title>
+  <title>ชุมชนคนรักสวยรักงาม</title>
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <!-- Owl Carousel Assets -->
@@ -93,8 +93,13 @@
     <div class="col-md-2" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
+<<<<<<< HEAD
             echo "<a href='dashboard.php' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Logout</a>";
+=======
+            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
+>>>>>>> 3c7c9e801f28ab890162f1e928f98f27e4331115
         }
             ?>
        </div>

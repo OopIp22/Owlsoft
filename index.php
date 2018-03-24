@@ -64,7 +64,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
   <meta name="author" content="https://www.365bootstrap.com">
-  <title>Beauty Community</title>
+  <title>ชุมชนคนรักสวยรักงาม</title>
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <!-- Owl Carousel Assets -->
@@ -137,9 +137,9 @@
        <?php
         if (isset($_SESSION["username"])) {
             echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
-            echo "<a href='logout.php' style='float:right;'>Logout</a>";
+            echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
-            echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign in</a><br>";
+            echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
             echo "<a href='#' style='float:right;'>Register</a>";
         }
             ?>
@@ -148,23 +148,23 @@
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
-					<h1>Sign in</h1><br>
+					<h1>Sign In</h1><br>
 				  <form action="checkLogin.php" method="post">
                       <?php
                       if (isset($_GET["error"])){
                           echo "<div style='color: red;'>Username หรือ Password ไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</div>";
                       }
                       ?>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign in" disabled>
+					<input type="text" name="user" placeholder="Username" id="user">
+					<input type="password" name="pass" placeholder="Password" id="pass">
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
 				  </form>
 					
 				  <div class="login-help info">
 					<a href="#">Forgot Password</a>
 				  </div>
-                     <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6Lc3oUwUAAAAAOCSkSybN7_kMHFVbzflx-ysw4Ek"></div>
-				</div>
+                     <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+        </div>
 			</div>
            
 		  </div>
