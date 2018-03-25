@@ -214,7 +214,7 @@ margin-right: 40%">OK</button></a>
   
     </div>
   </div>
-  <footer style="background-color:#3a2822">
+  <footer style="background-color:#3a2822" >
     <div class="copy-right">
       <p>© Copyright
         <br>Contact : admin@kkumail.com </p>
