@@ -85,13 +85,26 @@
         ////////////////////////////////////////////////////////
         /////////////////////Check Birthdate/////////////////////
         function checkBirthdate(){
-            var date = document.getElementById("birthdate").value;
-            var d = parseInt(date.split("-",1));
-            var y = new Date();
-            var year = d-y.getFullYear();
-                if(year < 20){
+                var date = document.getElementById("date").value;
+                var d = date.split("-");
+                var year = parseInt(d[0]);
+                var month = parseInt(d[1]);
+                var day = parseInt(d[2]);
+                var full = new Date();
+                
+                var year1 = full.getFullYear() - year;
+                var month1 = full.getMonth()+1 - month;
+                var day1 = full.getDate() - day;
+               
+                if(month1 < 0 || (month1 == 0 && day1 > 0)){
+                    year1 = year1 + 1;
+                }else if(month1 == 0 && day1 < 0){
+                    year1 = year1 - 1;
+                }
+    
+                if(year1 < 20){
                     document.getElementById("b").innerHTML = "Your age must greater than 20 years old";
-                }     
+                }    
         }
         ////////////////////////////////////////////////////////
         ///////////////////////Email////////////////////////////////
@@ -276,13 +289,11 @@
             <div class="form-group row">
               <label class="col-2 col-form-label">Question 1</label>
                   <select class="form-control" id="sel1" name="Q1">
-                    <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
-                    <option value="Where is your hometown?">2. Where is your hometown?</option>
-                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
-                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
-                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
-                    <option value="Where is your father office?">6. Where is your father office?</option>
-                    <option value="What is your favourite food?">7. What is your favourite food?</option>
+                    <option>---------Please Select-----------</option>
+                    <option value="What is your fisrt pet's name?">What is your fisrt pet's name?</option>
+                    <option value="Where is your hometown?">Where is your hometown?</option>
+                    <option value="What is your neighbour name?">What is your neighbour name?</option>
+                    <option value="Where is your fisrt school?">Where is your fisrt school?</option>
                   </select>
                 </div>
             <div class="form-group row">
@@ -294,13 +305,11 @@
         <div class="form-group row">
               <label class="col-2 col-form-label">Question 2</label>
                   <select class="form-control" id="sel2" name="Q2">
-                   <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
-                    <option value="Where is your hometown?">2. Where is your hometown?</option>
-                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
-                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
-                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
-                    <option value="Where is your father office?">6. Where is your father office?</option>
-                    <option value="What is your favourite food?">7. What is your favourite food?</option>
+                    <option value="">---------Please Select-----------</option>
+                    <option value="What is your mother favourite color?">What is your mother favourite color?</option>
+                    <option value="Where is your father office?">Where is your father office?</option>
+                    <option value="What is your favourite food?">What is your favourite food?</option>
+                    <option value="What is your favourite game?">What is your favourite game?</option>
                   </select>
                 </div>
             <div class="form-group row">
@@ -312,13 +321,11 @@
         <div class="form-group row">
               <label class="col-2 col-form-label">Question 3</label>
                   <select class="form-control" id="sel3" name="Q3">
-                    <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
-                    <option value="Where is your hometown?">2. Where is your hometown?</option>
-                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
-                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
-                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
-                    <option value="Where is your father office?">6. Where is your father office?</option>
-                    <option value="What is your favourite food?">7. What is your favourite food?</option>
+                      <option value="">---------Please Select-----------</option>
+                    <option value="What is your favourite cosmetic brand?">What is your favourite cosmetic brand?</option>
+                    <option value="Where is your first date?">Where is your first date?</option>
+                    <option value="What is your bestfriend name?">What is your bestfriend name?</option>
+                    <option value="Where is your favourite place at school?">Where is your favourite place at school?</option>
                   </select>
                 </div>
             <div class="form-group row">
