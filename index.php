@@ -140,7 +140,7 @@
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
             echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
-            echo "<a href='#' style='float:right;'>Register</a>";
+            echo "<a href='/register.php' style='float:right;'>Register</a>";
         }
             ?>
        </div>
