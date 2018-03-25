@@ -45,7 +45,23 @@
         function makeaction(){
             document.getElementById('btn_submit').disabled = false;  
         }
-        
+        /////////////////Check Identification///////////////////////
+        function checkSsn(){
+            var CheckSnn = document.getElementById("ssn").value;
+            const CCssn = CheckSnn;
+            const regexSSN = /[0-9]{13}|[A-Z]{1}[0-9]{7}|[A-Z]{2}[0-9]{6}/g;
+            let mSSN =regexSSN.exec(CCssn);
+            if(CheckSnn == null || CheckSnn == ""){
+                document.getElementById("alertSSN").innerHTML = "Please input your Identification number or Passport number"; 
+            }else if(mSSN == null){
+                document.getElementById("alertSSN").innerHTML = "Incorrect Identification number or Passport number";
+                document.getElementById("registerBtn").disabled = false;
+            }else{
+            document.getElementById("alertSSN").innerHTML = "";
+                }
+        }
+        //////////////////////////////////////////////////////
+        /////////////////Check Password///////////////////////
         function checkPassword(){
             let regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*_)(?=.*\-).{16,}/;
             var pass = document.getElementById("password").value;
@@ -55,7 +71,8 @@
                  document.getElementById("blank").innerHTML = " ";
             }
         }
-        
+        ////////////////////////////////////////////////////////
+        //////////////////Check ConfirmPass/////////////////////////
         function checkMatchpass(){
             var pass = document.getElementById("password").value;
             var Cpass = document.getElementById("Conpassword").value;
@@ -65,17 +82,36 @@
                  document.getElementById("blank").innerHTML = " ";
             }
         }
-        
+        ////////////////////////////////////////////////////////
+        /////////////////////Check Birthdate/////////////////////
         function checkBirthdate(){
             var date = document.getElementById("birthdate").value;
             var d = parseInt(date.split("-",1));
             var y = new Date();
             var year = d-y.getFullYear();
                 if(year < 20){
-                    document.getElementById("b").innerHTML = "ต้องอายุ 20 ปีขึ้นไป";
+                    document.getElementById("b").innerHTML = "Your age must greater than 20 years old";
                 }     
         }
+        ////////////////////////////////////////////////////////
+        ///////////////////////Email////////////////////////////////
+        function checkEmail(){
+             var Cemail = document.getElementById("email").value;
+            const CCemail = Cemail;
+            const regexEmail = /[^@\s]+@[^@\s]+\.[^@\s]+/g;
+            let mEmail =regexEmail.exec(CCemail);
+            if(Cemail == null || Cemail == ""){
+                document.getElementById("alertEmail").innerHTML = "Please input your Email";
+            }
+            else if(mEmail == null){
+                document.getElementById("alertEmail").innerHTML = "Example : example@email.com";
+            }else{
+                document.getElementById("alertEmail").innerHTML = "";
+            }
+        }
+        //////////////////////////////////////////////////////////
     </script>
+    
     <style>
             *{
             font-family: 'Kanit', sans-serif;
@@ -198,8 +234,9 @@
             </div>
             <div class="form-group row">
               <label class="col-2 col-form-label">Identification card/Passport ID</label>
+                <div id="alertSSN"></div>
               <div class="col-10">
-                <input class="form-control" type="text" id="ssn" name="ssn">
+                <input class="form-control" type="text" id="ssn" name="ssn" onchange="checkSsn()">
               </div>
             </div>
             <div class="form-group row">
@@ -233,7 +270,7 @@
               <label for="example-date-input" class="col-2 col-form-label">Birthdate</label>
               <div class="col-10">
                 <div id="b"></div>
-                <input class="form-control" type="date" id="birthdate" name="Birthdate">
+                <input class="form-control" type="date" id="birthdate" name="Birthdate" onchange="checkBirthdate()" required>
               </div>
             </div>
             <div class="form-group row">
@@ -294,8 +331,9 @@
                 
             <div class="form-group row">
               <label for="example-password-input" class="col-2 col-form-label">Email</label>
+              <div id="alertEmail"></div>
               <div class="col-10">
-                <input class="form-control" type="email" id="email" name="email">
+                <input class="form-control" type="email" id="email" name="email" onchange="checkEmail()" equired>
               </div>
             </div>
                 
@@ -312,8 +350,11 @@
     	  <div class="modal-dialog">
 				<div style="background-color:white; width:800px; padding:50px; margin-left:auto; margin-right:auto;">
                     <h2 style="text-align: center;">TERMS AND CONDITIONS</h2><ol><li><strong>Introduction</strong></li></ol><p>These Website Standard Terms and Conditions written on this webpage shall manage your use of this website. These Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree with any of these Website Standard Terms and Conditions.</p><p>Minors or people below 20 years old are not allowed to use this Website.</p><ol start="2"><li><strong>Intellectual Property Rights</strong></li></ol><p>Other than the content you own, under these Terms, Owlsoft enterprise and/or its licensors own all the intellectual property rights and materials contained in this Website.</p><p>You are granted limited license only for purposes of viewing the material contained on this Website.</p><ol start="3"><li><strong>Restrictions</strong></li></ol><p>You are specifically restricted from all of the following</p><ul><li>publishing any Website material in any other media;</li><li>selling, sublicensing and/or otherwise commercializing any Website material;</li><li>publicly performing and/or showing any Website material;</li><li>using this Website in any way that is or may be damaging to this Website;</li><li>using this Website in any way that impacts user access to this Website;</li><li>using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</li><li>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</li><li>using this Website to engage in any advertising or marketing.</li></ul><p>Certain areas of this Website are restricted from being access by you and Owlsoft enterprise may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality as well.</p><ol start="4"><li><strong>Your Content</strong></li></ol><p>In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant Owlsoft enterprise a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.</p><p>Your Content must be your own and must not be invading any third-party’s rights. Owlsoft enterprise reserves the right to remove any of Your Content from this Website at any time without notice.</p><ol start="5"><li><strong>No warranties</strong></li></ol><p>This Website is provided “as is,” with all faults, and Owlsoft enterprise express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you.</p><ol start="6"><li><strong>Limitation of liability</strong></li></ol><p>In no event shall Owlsoft enterprise, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract. &nbsp;Owlsoft enterprise, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.</p><ol start="7"><li><strong>Indemnification</strong></li></ol><p>You hereby indemnify to the fullest extent Owlsoft enterprise from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.</p><ol start="8"><li><strong>Severability</strong></li></ol><p>If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p><ol start="9"><li><strong>Variation of Terms</strong></li></ol><p>Owlsoft enterprise is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p><ol start="10"><li><strong>Assignment</strong></li></ol><p>The Owlsoft enterprise is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.</p><ol start="11"><li><strong>Entire Agreement</strong></li></ol><p>These Terms constitute the entire agreement between Owlsoft enterprise and you in relation to your use of this Website, and supersede all prior agreements and understandings.</p><ol start="12"><li><strong>Governing Law &amp; Jurisdiction</strong></li></ol><p>These Terms will be governed by and interpreted in accordance with the laws of the State of KhonKaen, and you submit to the non-exclusive jurisdiction of the state and federal courts located in KhonKaen for the resolution of any disputes.</p>
+<<<<<<< HEAD
                     
 				 
+=======
+>>>>>>> 23e994dc065d48a7d17b65cd238d0a6b42f1bb43
 				</div>
 			</div>
            
@@ -332,7 +373,7 @@
                 
                 
             </label><br>
-                <button type="submit" class="btn btn-default" style="background-color:#AEE0A4; color:white;">Register</button>
+                <button type="submit" class="btn btn-default" id="registerBtn" style="background-color:#AEE0A4; color:white;">Register</button>
                 
             </div>
             
