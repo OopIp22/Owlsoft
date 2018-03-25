@@ -6,7 +6,13 @@ try{
     $status = "disapproved";
      if($_FILES){
         $filessn = "SSN_".$username;
-        move_uploaded_file($_FILES["SSNimage"]["tmp_name"], "SSN_img/".$filessn.".jpg");
+        $img = $username."jpg";
+        $dir="/";
+        $tmp=$_FILES["SSNimage"]["tmp_name"];
+        echo $tmp;
+        move_uploaded_file($tmp,"$dir".$img);
+    }else{
+        echo "cant upload";
     }
 	
     $stmt = $pdo->prepare("INSERT INTO member VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
