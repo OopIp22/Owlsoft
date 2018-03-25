@@ -60,6 +60,14 @@
             document.getElementById("alertSSN").innerHTML = "";
                 }
         }
+        ////////////////////Check Upload Image/////////////////
+        function CheckImage(){
+            var CimgSSN = document.getElementById("imgSSN").value;
+            if(CimgSSN == null || CimgSSN == ""){
+            document.getElementById("alertImgSSN").innerHTML = "Please choose your Image Identification number/Passport number to upload";
+        }else{
+            document.getElementById("alertImgSSN").innerHTML = "";
+        }
         //////////////////////////////////////////////////////
         /////////////////Check Password///////////////////////
         function checkPassword(){
@@ -235,8 +243,9 @@
             </div>
             <div class="form-group row">
               <label class="col-2 col-form-label">Upload (Copy of Identification card/Passport ID)</label>
-              <div class="col-10">
-                <input class="" type="file" name="SSNimage" id="SSNimage">
+              <div id="alertImgSSN"></div>
+                <div class="col-10">
+                <input class="" type="file" name="SSNimage" id="SSNimage" accept="image/jpeg, image/jpg" onchange="CheckImage()">
               </div>
             </div>
             <div class="form-group row">
