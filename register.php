@@ -65,6 +65,10 @@
                  document.getElementById("blank").innerHTML = " ";
             }
         }
+        
+        function checkBirthdate(){
+            
+        }
     </script>
     <style>
             *{
@@ -183,7 +187,7 @@
             <div class="form-group row">
               <label class="col-2 col-form-label">First Name - Last Name</label>
               <div class="col-10">
-                <input class="form-control" type="search" id="name" name="name">
+                <input class="form-control" type="text" id="name" name="name">
               </div>
             </div>
             <div class="form-group row">
@@ -195,7 +199,7 @@
             <div class="form-group row">
               <label class="col-2 col-form-label">Upload (Copy of Identification card/Passport ID)</label>
               <div class="col-10">
-                <input class="" type="file" name="SSNimage" id="SSNimage" accept="image/*">
+                <input class="" type="file" name="SSNimage" id="SSNimage">
               </div>
             </div>
             <div class="form-group row">
@@ -227,56 +231,56 @@
             </div>
             <div class="form-group row">
               <label class="col-2 col-form-label">Question 1</label>
-                  <select class="form-control" id="sel1">
-                    <option>1. what is your fisrt pet's name?</option>
-                    <option>2. Where is your hometown?</option>
-                    <option>3. What is your neighbour name?</option>
-                    <option>4. Where is your fisrt school?</option>
-                    <option>5. What is your mother favourite color?</option>
-                    <option>6. Where is your father office?</option>
-                    <option>7. What is your favourite food?</option>
+                  <select class="form-control" id="sel1" name="Q1">
+                    <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
+                    <option value="Where is your hometown?">2. Where is your hometown?</option>
+                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
+                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
+                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
+                    <option value="Where is your father office?">6. Where is your father office?</option>
+                    <option value="What is your favourite food?">7. What is your favourite food?</option>
                   </select>
                 </div>
             <div class="form-group row">
             <label class="col-2 col-form-label">Answer 1</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="q1">
+                <input class="form-control" type="text" id="q1" name="Ans1">
               </div>
             </div>
         <div class="form-group row">
               <label class="col-2 col-form-label">Question 2</label>
-                  <select class="form-control" id="sel2">
-                    <option>1. what is your fisrt pet's name?</option>
-                    <option>2. Where is your hometown?</option>
-                    <option>3. What is your neighbour name?</option>
-                    <option>4. Where is your fisrt school?</option>
-                    <option>5. What is your mother favourite color?</option>
-                    <option>6. Where is your father office?</option>
-                    <option>7. What is your favourite food?</option>
+                  <select class="form-control" id="sel2" name="Q2">
+                   <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
+                    <option value="Where is your hometown?">2. Where is your hometown?</option>
+                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
+                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
+                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
+                    <option value="Where is your father office?">6. Where is your father office?</option>
+                    <option value="What is your favourite food?">7. What is your favourite food?</option>
                   </select>
                 </div>
             <div class="form-group row">
             <label class="col-2 col-form-label">Answer 2</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="q2">
+                <input class="form-control" type="text" id="q2" name="Ans2">
               </div>
             </div>
         <div class="form-group row">
               <label class="col-2 col-form-label">Question 3</label>
-                  <select class="form-control" id="sel3">
-                    <option>1. what is your fisrt pet's name?</option>
-                    <option>2. Where is your hometown?</option>
-                    <option>3. What is your neighbour name?</option>
-                    <option>4. Where is your fisrt school?</option>
-                    <option>5. What is your mother favourite color?</option>
-                    <option>6. Where is your father office?</option>
-                    <option>7. What is your favourite food?</option>
+                  <select class="form-control" id="sel3" name="Q3">
+                    <option value="what is your fisrt pet's name?">1. what is your fisrt pet's name?</option>
+                    <option value="Where is your hometown?">2. Where is your hometown?</option>
+                    <option value="What is your neighbour name?">3. What is your neighbour name?</option>
+                    <option value="Where is your fisrt school?">4. Where is your fisrt school?</option>
+                    <option value="What is your mother favourite color?">5. What is your mother favourite color?</option>
+                    <option value="Where is your father office?">6. Where is your father office?</option>
+                    <option value="What is your favourite food?">7. What is your favourite food?</option>
                   </select>
                 </div>
             <div class="form-group row">
             <label class="col-2 col-form-label">Answer 3</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="q3">
+                <input class="form-control" type="text" id="q3" name="Ans3">
               </div>
             </div>        
             
@@ -284,7 +288,7 @@
             <div class="form-group row">
               <label for="example-password-input" class="col-2 col-form-label">Email</label>
               <div class="col-10">
-                <input class="form-control" type="email" id="email">
+                <input class="form-control" type="email" id="email" name="email">
               </div>
             </div>
                 
