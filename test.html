@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+            function Checkdate(){
+                var date = document.getElementById("date").value;
+                var d = parseInt(date.split("-",1));
+                var y = new Date();
+                var year = d-y.getFullYear();
+                if(year < 20){
+                    document.getElementById("b").innerHTML = "ต้องอายุ 20 ปีขึ้นไป";
+                }    
+            }
+        </script>
+    </head>
+    
+    <body>
+        <form>
+        <input type="date" id="date" onchange="Checkdate()">
+        <div id="b"> </div>
+        </form>
+    </body>
+</html>
