@@ -1,16 +1,15 @@
 <?php
-include('connect.php');
+include "connect.php";
 
 try{
-    $username = $_POST["username"];
+    $username = $_POST['username'];
     $status = "disapproved";
-     if($_FILES){
+    
+    if($_FILES){
         $filessn = "SSN_".$username;
-        $img = $username."jpg";
-        $dir="/";
-        $tmp=$_FILES["SSNimage"]["tmp_name"];
-        echo $tmp;
-        move_uploaded_file($tmp,"$dir".$img);
+        $img = $username.".jpg";
+        $tmp = $_FILES["SSNimage"]["tmp_name"];
+        move_uploaded_file($tmp, "SSN_img/".$img);
     }else{
         echo "cant upload";
     }
@@ -31,8 +30,11 @@ try{
     $stmt->bindParam(13, $_POST["Ans3"]);
     $stmt->bindParam(14, $filessn);
     $stmt->execute();
-     echo "Success";
+     header("location : successRegis.php");
+    
 }catch(Exception $e){
+    header("location : register.php");
     echo "<script> alert('ข้อมูลไม่ถูกต้อง');</script>";
+     
 }
 ?>

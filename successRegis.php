@@ -1,48 +1,3 @@
-<?php
-    session_start();
-    include "connect.php";
-     $news_id = $_GET['news_id'];
-    $result = $pdo->query("SELECT news_id FROM beauty_community");
-    $id = 0;
-    $array[] = 0;
-    $thispage = 0;
-    while($row = $result->fetch()){
-       $array[$id] = $row["news_id"];
-        $id++;
-    }
-    for($i=0;$i < sizeof($array);$i++){
-        if($array[$i] == $news_id){
-            $thispage = $i;
-        }
-    }
-    for($j=$thispage;$j < sizeof($array);$j++){
-        if($array[$j] == $news_id){
-            $next = $j+1;
-            $prev = $j-1;
-        if($next == sizeof($array)){
-            $nextp = null;
-        }else{
-            $nextp = $array[$next];
-        }
-        if($prev < 0){
-            $prevp = null;
-        }else{
-            $prevp = $array[$prev];
-        }
-        }
-    }
-
-     $date = date('Y-m-d');
-    function DateThai($date)
-	       {
-                $strYear = date("Y",strtotime($date))+543;
-                $strMonth= date("n",strtotime($date));
-                $strDay= date("j",strtotime($date));
-                $strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
-                $strMonthThai=$strMonthCut[$strMonth];
-                return "$strDay $strMonthThai $strYear";
-	       }
-?>
 
 <!DOCTYPE html>
 <html>
@@ -119,7 +74,7 @@
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
             echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
-            echo "<a href='#' style='float:right;'>Register</a>";
+            echo "<a href='register.php' style='float:right;'>Register</a>";
         }
             ?>
        </div>
@@ -198,13 +153,12 @@
   <div id="page-content" class="single-page container">
     <div class="row">
       <div id="main-content" class="col-md-12">
-        <div class="box" style="padding:40px 60px 40px 60px;">
+        <div class="box" style="padding:250px 60px 40px 60px; height:800px;">
             <!----------------------------------------------------------Seccessful--------------------------------------------->
             <div style="padding:50px;">
-                <div style="font-size:25px; text-align:center;">กรุณารอข้อความ</div>
-                <div style="font-size:25px; text-align:center; margin-bottom:15px;">ยืนยันจาก Admin</div>
-                <a href="index.php" style="color:white;"><button type="submit" class="btn btn-default" style="background-color:#AEE0A4; color:white; width: 20%; margin-left: 40%;
-margin-right: 40%">OK</button></a>
+                <div style="font-size:30px; text-align:center;">ขอบคุณที่สมัครสมาชิก</div><br>
+                <div style="font-size:30px; text-align:center;">กรุณารอรับอีเมลตอบกลับ</div>
+                
             </div>
             
             
