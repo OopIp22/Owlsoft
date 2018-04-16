@@ -170,7 +170,7 @@ $row=$stmt->fetch();
                 <div class="form-group row">
                     <label style="font-size:25px; font-weight:bold;" class="col-md-8">Please answer your security questions.</label><br>
                     <p class="col-md-8">These question help us verify your identify</p>
-                    <div id="alertAns" style="color:red;"></div>
+                    <div class="col-md-8" id="alertAns" style="color:red;"></div>
                     <label class="col-md-10 col-form-label">Question 1 : <?php echo $row["Question1"]; ?></label>
                     <div class="col-md-8">
                         <input class="form-control" type="text" id="ans1" onchange="checkAnswer1()">
