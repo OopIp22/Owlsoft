@@ -82,10 +82,12 @@
   <script src="js/bootstrap.min.js"></script>
   <!-- Google reCaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="js/ajaxForgetpass.js"></script>
+    <script src="js/checkLinkForget.js"></script>
 <script>
-        function makeaction(){
-            document.getElementById('btn_submit').disabled = false;  
-        }
+       // function makeaction(){
+       //     document.getElementById('btn_submit').disabled = false;  
+       // }
     <?php
         if (isset($_GET["error"])){
     echo "window.onload = function(){
@@ -93,6 +95,7 @@
     }";
         }
             ?>
+
     </script>
     <style>
    #myList li{ display:none;
@@ -155,15 +158,17 @@
                           echo "<div style='color: red;'>Username หรือ Password ไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</div>";
                       }
                       ?>
-					<input type="text" name="user" placeholder="Username" id="user">
+                      <div id="alert"></div>
+					<input type="text" name="username" placeholder="Username" id="username">
 					<input type="password" name="pass" placeholder="Password" id="pass">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In">
 				  </form>
 					
 				  <div class="login-help info">
-					<a href="#">Forgot Password</a>
+					<a href="#" onclick="checkForget()">Forgot Password</a>
+          <input type="hidden" id="forget" value="0" style="display:none;">
 				  </div>
-                     <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                     
         </div>
 			</div>
            

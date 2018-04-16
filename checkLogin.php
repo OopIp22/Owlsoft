@@ -2,13 +2,14 @@
     session_start();
     include "connect.php";
 
-    $username = $_POST["user"];
+    $username = $_POST["username"];
     $password = $_POST["pass"];
+    
     $back = $_SERVER['HTTP_REFERER'];
     $error = $_SERVER['HTTP_REFERER']."?&error=1";
     
 try{
-    $sql = "SELECT * FROM member WHERE username = ? and password = ?";
+    $sql = "SELECT * FROM member WHERE Username = ? and password = ? and Status IN ('member','admin')";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(1, $username);
     $stmt->bindValue(2, $password);
@@ -26,7 +27,7 @@ try{
     }
 }
 catch(Exception $e){
-    $pdo->rollBack();
+    
     echo "ข้อมูลไม่ถูกต้อง";
 }
 
