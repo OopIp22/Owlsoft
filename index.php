@@ -85,9 +85,9 @@
     <script src="js/ajaxForgetpass.js"></script>
     <script src="js/checkLinkForget.js"></script>
 <script>
-       // function makeaction(){
-       //     document.getElementById('btn_submit').disabled = false;  
-       // }
+        function makeaction(){
+           document.getElementById('btn_submit').disabled = false;  
+        }
     <?php
         if (isset($_GET["error"])){
     echo "window.onload = function(){
@@ -161,14 +161,14 @@
                       <div style='color: red;' id="alert"></div>
 					<input type="text" name="username" placeholder="Username" id="username">
 					<input type="password" name="pass" placeholder="Password" id="pass">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In">
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
 				  </form>
 					
 				  <div class="login-help info">
 					<a href="#" onclick="checkForget()">Forgot Password</a>
           <input type="hidden" id="forget" value="0" style="display:none;">
 				  </div>
-                     
+          <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LfUIk0UAAAAANcI5VnU7DPsj9rUm-g9fSB0hgSK"></div>          
         </div>
 			</div>
            
