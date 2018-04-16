@@ -24,8 +24,11 @@ function getStatus(){
             document.getElementById("forget").value = "0";
         }
         console.log(document.getElementById("forget").value);
+        if(document.getElementById("forget").value == "1"){
+            window.location.href = "question.php?username=" + username;
+        }else{
+            window.location.href = "#";
+        }
     }
-    if(document.getElementById("forget").value = "1"){
-        window.location.href = "question.php?username=" + username;
-    }
+    
 }
