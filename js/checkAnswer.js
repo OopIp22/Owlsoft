@@ -16,7 +16,7 @@ function checkAnswer(){
     }
     if(ansFalse >= 3){
         disableMember();
-        document.getElementById("alertAns").innerHTML = "แอคเคาท์ของท่านถูกล็อก";
+        showModal();
         document.getElementById("submitAns").disabled = true;
     }
     console.log(ansFalse);
@@ -38,4 +38,8 @@ function getStatus(){
            console.log("disable");
         }
     }
+}
+
+function showModal(){
+    $('#myModal').modal('show');
 }

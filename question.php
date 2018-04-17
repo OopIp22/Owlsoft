@@ -161,6 +161,24 @@ $row=$stmt->fetch();
   </nav>
   <!-- Header -->
   <!-- /////////////////////////////////////////Content -->
+  <!---------------------------------------------------------password locked modal--------------------------------------------->
+       <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+         
+              <div class="modal-body">
+                <p>บัญชีของท่านถูกล็อค</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-default" type="button" onclick="location.href='index.php?login=1';" style="background-color:#AEE0A4; color:white;">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    
+ <!------------------------------------------------------END password locked modal------------------------------------------------> 
   <div id="page-content" class="single-page container">
     <div class="row">
       <div id="main-content" class="col-md-12">
