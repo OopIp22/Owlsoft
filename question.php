@@ -105,7 +105,7 @@ $row=$stmt->fetch();
 				  </form>
 					
 				 <div class="login-help info">
-                 <a href="#" onclick="checkForget()">Forgot Password</a>
+                 <a href="#" onclick="checkForget()" id="forgetPass">Forgot Password</a>
                  <input type="hidden" id="forget" value="0" style="display:none;">
 				  </div>
                      <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LfUIk0UAAAAANcI5VnU7DPsj9rUm-g9fSB0hgSK"></div>
