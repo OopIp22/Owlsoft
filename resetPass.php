@@ -201,13 +201,15 @@
                     <label style="font-size:25px; font-weight:bold;" class="col-md-8">Please insert your new password.</label><br><br>
                     <div class="col-md-8">
                         New password<br>
+                        <div style="color:red" id="blank"></div>
                         <input class="form-control" type="password" id="newpassword" name="newpassword" onchange="checkPassword()">
                         <input type="hidden" id="checkpass" value="0" style="display:none;">
-                        <div style="color:red" id="blank"></div><br>
+                        
                         Confirm password<br>
+                        <div style="color:red" id="blank1"></div>
                        <input class="form-control" type="password" id="conpassword" onchange="checkMatchpass()">
                        <input type="hidden" id="checkcon" value="0" style="display:none;">
-                        <div style="color:red" id="blank1"></div><br>
+                        
                     </div>
                 </div>
                 <input type="hidden" value="<?php echo $username; ?>" id=username style="display:none;" name="username">
