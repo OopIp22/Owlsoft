@@ -28,9 +28,9 @@
     $mail->Host = "smtp-mail.outlook.com";
     $mail->Port = 587; // or 587
     $mail->IsHTML(true);
-    $mail->Username = "owlsoftenterprise@hotmail.com";
-    $mail->Password = "owl1234567890";
-    $mail->SetFrom("owlsoftenterprise@hotmail.com");
+    $mail->Username = "owlsoft@hotmail.com";
+    $mail->Password = "Owl12345";
+    $mail->SetFrom("owlsoft@hotmail.com");
     $mail->Subject = "ข้อความจากชุมชนคนรักสวยรักงาม";
     $mail->Body = "บัญชีของท่านถูกล็อก โปรดติดต่อ admin";
     $mail->AddAddress($email);

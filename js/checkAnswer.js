@@ -10,7 +10,7 @@ function checkAnswer(){
         document.getElementById("alertAns").innerHTML = "";
         status = true;
     }else{
-        document.getElementById("alertAns").innerHTML = "คำตอบของท่านไม่ถูกต้อง โปรดตอบใหม่อีกครั้ง";
+        document.getElementById("alertAns").innerHTML = "Please answer the question correctly.";
         status = false;
         ansFalse=ansFalse+1;
     }

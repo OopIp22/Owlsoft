@@ -130,7 +130,7 @@
         </li>
           <li>
            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Knowledge sources
+                Knowledge resources
               </a>
           </li>
            <li>
