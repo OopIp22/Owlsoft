@@ -35,6 +35,7 @@ $row=$stmt->fetch();
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
     <script src="js/ajaxCheckAns.js"></script>
     <script src="js/checkAnswer.js"></script>
+    <script src="js/ajaxForgetpass.js"></script>
     <script>
         function makeaction(){
             document.getElementById('btn_submit').disabled = false;  
@@ -98,13 +99,14 @@ $row=$stmt->fetch();
                           echo "<div style='color: red;'>Username หรือ Password ไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</div>";
                       }
                       ?>
-					<input type="text" name="user" placeholder="Username">
+					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
 					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign in" disabled>
 				  </form>
 					
 				 <div class="login-help info">
-					<a href="#">Forgot Password</a>
+                 <a href="#" onclick="checkForget()">Forgot Password</a>
+                 <input type="hidden" id="forget" value="0" style="display:none;">
 				  </div>
                      <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LfUIk0UAAAAANcI5VnU7DPsj9rUm-g9fSB0hgSK"></div>
 				</div>
@@ -165,8 +167,8 @@ $row=$stmt->fetch();
         <div class="box" style="padding:100px 60px 40px 350px; height:800px;">
             <!----------------------------------------------------------Question form--------------------------------------------->
     
-            <form action="resetPass.php">
-                <input type="hidden" value="<?php echo $username; ?>" id=username style="display:none;" >
+            <form action="resetPass.php" method="post">
+                <input type="hidden" value="<?php echo $username; ?>" id=username style="display:none;" name="username">
                 <div class="form-group row">
                     <label style="font-size:25px; font-weight:bold;" class="col-md-8">Please answer your security questions.</label><br>
                     <p class="col-md-8">These question help us verify your identify</p>

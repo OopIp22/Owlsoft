@@ -17,10 +17,10 @@ function getStatus(){
            document.getElementById("alert").innerHTML = "";
            document.getElementById("forget").value = "1";
         }else if(xmlHttp.responseText == "fail"){
-             document.getElementById("alert").innerHTML = "กรุณากรอก username ที่ถูกต้อง";
+             document.getElementById("alert").innerHTML = "Please input correct username";
              document.getElementById("forget").value = "0";
         }else{
-            document.getElementById("alert").innerHTML = "กรุณากรอก username";
+            document.getElementById("alert").innerHTML = "Please input username";
             document.getElementById("forget").value = "0";
         }
         console.log(document.getElementById("forget").value);

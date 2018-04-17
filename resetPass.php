@@ -1,3 +1,6 @@
+<?php
+    $username = $_POST["username"];
+?>
 
 <!DOCTYPE html>
 <html>
@@ -26,6 +29,9 @@
   <!-- Google reCaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"> 
+ <script src="js/CheckblankReset.js"></script>
+ <script src="js/checkReset.js"></script>
+ <script src="js/ajaxForgetpass.js"></script>
     <script>
         function makeaction(){
             document.getElementById('btn_submit').disabled = false;  
@@ -44,8 +50,13 @@
             var pass = document.getElementById("newpassword").value;
             if(!pass.match(regex)){
                 document.getElementById("blank").innerHTML = "Please Input Password in A-Z,a-z,0-9,_,-" ;
+                document.getElementById("checkpass").value = "0";
+            }else if(pass == ""){
+                document.getElementById("blank").innerHTML = "Please Input Password" ;
+                document.getElementById("checkpass").value = "0";
             }else{
                  document.getElementById("blank").innerHTML = " ";
+                 document.getElementById("checkpass").value = "1";
             }
         }
         ////////////////////////////////////////////////////////
@@ -53,10 +64,16 @@
         function checkMatchpass(){
             var pass = document.getElementById("newpassword").value;
             var Cpass = document.getElementById("conpassword").value;
+            if(Cpass== ""){
+                document.getElementById("blank1").innerHTML = "Please Input Confirm Password" ;
+                document.getElementById("checkcon").value = "0";
+            }
             if(pass!= Cpass){
                document.getElementById("blank1").innerHTML = "Comfirm password don't match password"; 
+               document.getElementById("checkcon").value = "0";
             }else{
-                 document.getElementById("blank").innerHTML = " ";
+                 document.getElementById("blank1").innerHTML = " ";
+                 document.getElementById("checkcon").value = "1";
             }
         }
         ////////////////////////////////////////////////////////   
@@ -112,13 +129,14 @@
                           echo "<div style='color: red;'>Username หรือ Password ไม่ถูกต้องกรุณากรอกใหม่อีกครั้ง</div>";
                       }
                       ?>
-					<input type="text" name="user" placeholder="Username">
+					<input type="text" name="username" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
 					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign in" disabled>
 				  </form>
 					
 				 <div class="login-help info">
-					<a href="#">Forgot Password</a>
+                 <a href="#" onclick="checkForget()">Forgot Password</a>
+                 <input type="hidden" id="forget" value="0" style="display:none;">
 				  </div>
                      <div class="g-recaptcha" data-callback="makeaction" data-sitekey="6LfUIk0UAAAAANcI5VnU7DPsj9rUm-g9fSB0hgSK"></div>
 				</div>
@@ -178,19 +196,22 @@
       <div id="main-content" class="col-md-12">
         <div class="box" style="padding:100px 60px 40px 350px; height:800px;">
             
-            <form action="updatePass.php">
+            <form action="updatePass.php" method="post" onsubmit="return checkReset()">
                 <div class="form-group row">
                     <label style="font-size:25px; font-weight:bold;" class="col-md-8">Please insert your new password.</label><br><br>
                     <div class="col-md-8">
                         New password<br>
-                        <input class="form-control" type="password" id="newpassword" name="newpassword" onchange="checkPassword()" required>
+                        <input class="form-control" type="password" id="newpassword" name="newpassword" onchange="checkPassword()">
+                        <input type="hidden" id="checkpass" value="0" style="display:none;">
                         <div style="color:red" id="blank"></div><br>
                         Confirm password<br>
-                       <input class="form-control" type="password" id="conpassword" onchange="checkMatchpass()" required>
+                       <input class="form-control" type="password" id="conpassword" onchange="checkMatchpass()">
+                       <input type="hidden" id="checkcon" value="0" style="display:none;">
                         <div style="color:red" id="blank1"></div><br>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default" id="registerBtn" style="background-color:#AEE0A4; color:white;">Reset</button>
+                <input type="hidden" value="<?php echo $username; ?>" id=username style="display:none;" name="username">
+                <button type="submit" class="btn btn-default" id="resetBtn" style="background-color:#AEE0A4; color:white;">Reset</button>
             </form>
 
       </div>

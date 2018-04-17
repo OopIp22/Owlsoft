@@ -24,7 +24,7 @@
     $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true; // authentication enabled
     $mail->SMTPSecure = 'STARTTLS'; // secure transfer enabled REQUIRED for Gmail
-    $mail->CHARSET = "UTF-8";
+    $mail->CharSet = 'UTF-8';
     $mail->Host = "smtp-mail.outlook.com";
     $mail->Port = 587; // or 587
     $mail->IsHTML(true);

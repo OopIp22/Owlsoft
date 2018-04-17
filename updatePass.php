@@ -12,6 +12,7 @@ use PHPMailer\PHPMailer\Exception;
         $stmt->bindParam(2, $username);
         $stmt->execute();
 
+        header("location: index.php?login=1");
         $stmt = $pdo->prepare("SELECT Email FROM member WHERE Username = ?");
         $stmt->bindParam(1, $username);
         $stmt->execute();
@@ -22,7 +23,7 @@ use PHPMailer\PHPMailer\Exception;
         $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
         $mail->SMTPAuth = true; // authentication enabled
         $mail->SMTPSecure = 'STARTTLS'; // secure transfer enabled REQUIRED for Gmail
-        $mail->CHARSET = "UTF-8";
+        $mail->CharSet = 'UTF-8';
         $mail->Host = "smtp-mail.outlook.com";
         $mail->Port = 587; // or 587
         $mail->IsHTML(true);
@@ -38,6 +39,6 @@ use PHPMailer\PHPMailer\Exception;
         } else {
                 echo "Message has been sent";
         }
-        header("location : index.php");
+        
         
 ?>

@@ -7,7 +7,7 @@ function checkAnswer(){
     var result3 = document.getElementById("result3").value;
     console.log(result1+"r"+result2+"r"+result3);
     if(result1 == "1" && result2 == "1" && result3 == "1"){
-        document.getElementById("alertAns").innerHTML = "ถูกจ้า";
+        document.getElementById("alertAns").innerHTML = "";
         status = true;
     }else{
         document.getElementById("alertAns").innerHTML = "คำตอบของท่านไม่ถูกต้อง โปรดตอบใหม่อีกครั้ง";

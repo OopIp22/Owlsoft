@@ -83,7 +83,6 @@
   <!-- Google reCaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="js/ajaxForgetpass.js"></script>
-    <script src="js/checkLinkForget.js"></script>
 <script>
         function makeaction(){
            document.getElementById('btn_submit').disabled = false;  
@@ -95,7 +94,13 @@
     }";
         }
             ?>
-
+    <?php
+        if (isset($_GET["login"])){
+    echo "window.onload = function(){
+    $('#signin').trigger('click')
+    }";
+        }
+            ?>
     </script>
     <style>
    #myList li{ display:none;
