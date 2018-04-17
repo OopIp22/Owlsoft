@@ -1,5 +1,6 @@
 function checkReset(){
     var status = false;
+    checkBlank();
     var checkPass = document.getElementById("checkpass").value;
     var checkCP = document.getElementById("checkcon").value;
     console.log(checkPass+"r"+checkCP);
