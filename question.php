@@ -168,7 +168,7 @@ $row=$stmt->fetch();
             <div class="modal-content">
          
               <div class="modal-body">
-                <p style="text-align:center">บัญชีของท่านถูกล็อค</p>
+                <p style="text-align:center">บัญชีของท่านถูกล็อค โปรดติดต่อแอดมิน</p>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-default" type="button" onclick="location.href='index.php?login=1';" style="background-color:#AEE0A4; color:white;">Close</button>
