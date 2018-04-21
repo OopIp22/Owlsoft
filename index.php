@@ -84,9 +84,9 @@
   <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="js/ajaxForgetpass.js"></script>
 <script>
-        //function makeaction(){
-        //   document.getElementById('btn_submit').disabled = false;  
-       // }
+        function makeaction(){
+          document.getElementById('btn_submit').disabled = false;  
+       }
     <?php
         if (isset($_GET["error"])){
     echo "window.onload = function(){
@@ -166,7 +166,7 @@
                       <div style='color: red;' id="alert"></div>
 					<input type="text" name="username" placeholder="Username" id="username">
 					<input type="password" name="pass" placeholder="Password" id="pass">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In">
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
 				  </form>
 					
 				  <div class="login-help info">

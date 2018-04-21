@@ -1,5 +1,7 @@
 function CheckAll(){
     var status = false;
+    console.log("Working");
+    checkBlankRegis();
     var fullname = document.getElementById("ForSubmitName").value;
     var ssn = document.getElementById("ForSubmitSSN").value;
     var img = document.getElementById("ForSubmitImg").value;
@@ -18,8 +20,6 @@ function CheckAll(){
     
     console.log("fullname :"+fullname+"ssn :"+ssn+"img :"+img+"username :"+username+"password :"+password+"Cpassword :"+Cpassword+"date :"+date+"q1"+q1+"ans1"+ans1+"q2"+q2+"ans2"+ans2+"q3"+q3+"ans3"+ans3+"email :"+email+"accept"+accecpt);
      if (fullname == "1" && ssn  == "1" && img  == "1" && username  == "1" && password == "1" && Cpassword == "1" && date  == "1" && q1 == "1" && ans1 == "1" && q2 == "1" && ans2 == "1" && q3 == "1" && ans3 == "1" && email == "1" && accecpt == true){
-        
-        document.getElementById("alertAll").innerHTML = "Please Input form";
          status=true;
         }else{
         status=false;

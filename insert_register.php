@@ -7,7 +7,7 @@ try{
     
     if($_FILES){
         $filessn = "SSN_".$username;
-        $img = $username.".jpg";
+        $img = "SSN_".$username.".jpg";
         $tmp = $_FILES["SSNimage"]["tmp_name"];
         move_uploaded_file($tmp, "SSN_img/".$img);
     }else{
@@ -30,7 +30,7 @@ try{
     $stmt->bindParam(13, $_POST["Ans3"]);
     $stmt->bindParam(14, $filessn);
     $stmt->execute();
-     header("location : successRegis.php");
+     header("location: successRegis.php");
     
 }catch(Exception $e){
     header("location : register.php");
