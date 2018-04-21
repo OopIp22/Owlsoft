@@ -156,8 +156,8 @@
         <div class="box" style="padding:250px 60px 40px 60px; height:800px;">
             <!----------------------------------------------------------Seccessful--------------------------------------------->
             <div style="padding:50px;">
-                <div style="font-size:30px; text-align:center;">ขอบคุณที่สมัครสมาชิก</div><br>
-                <div style="font-size:30px; text-align:center;">กรุณารอรับอีเมลตอบกลับ</div>
+                <div style="font-size:30px; text-align:center;">Thank you for registration.</div><br>
+                <div style="font-size:30px; text-align:center;">Please waiting email from admin</div>
                 
             </div>
             

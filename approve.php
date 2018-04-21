@@ -18,11 +18,13 @@
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear";
 	       }
+
     $username = $_GET['username'];
     $stmt = $pdo->prepare("SELECT * FROM member WHERE Username = ?");
     $stmt->bindParam(1, $username);
     $stmt->execute();
     $row = $stmt->fetch();
+                
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +56,15 @@
   <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <style>
-
+   #myList li{ display:none;
+}
+#loadMore {
+    color:green;
+    cursor:pointer;
+}
+#loadMore:hover {
+    color:black;
+}
 *{
 	font-family: 'Kanit', sans-serif;
 }
@@ -93,13 +103,8 @@
     <div class="col-md-2" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
-
             echo "<a href='dashboard.php' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
-            echo "<a href='logout.php' style='float:right;'>Logout</a>";
-
-            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
-
         }
             ?>
        </div>
@@ -137,36 +142,35 @@
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box">
-            <p>ชื่อ : <?php echo $row["Name"]; ?></p><br>
-            <p>username : <?php echo $row["Username"]; ?></p><br>
+            <div style="font-size:25px; margin:100px 100px 100px 100px">
+                <p>Firstname - Lastname : <?php echo $row["Name"]; ?></p><br>
+            <p>Username : <?php echo $row["Username"]; ?></p><br>
             <p>SSN/Passport ID : <?php echo $row["SSN"]; ?></p><br>
             <p>Birthday : <?php echo DateThai($row["Birthdate"]); ?></p><br>
             <p>E-mail : <?php echo $row["email"]; ?></p><br>
-            <p>คำถาม : </p><br>
+            <p>Question : </p><br>
             <div style="padding-left:50px; width:900px;">
                 <div style="width:50%; float:left;">
-                <p>คำถามที่ 1 : <?php echo $row["Question1"]; ?></p><br>
-                <p>คำถามที่ 2 : <?php echo $row["Question2"]; ?></p><br>
-                <p>คำถามที่ 3 : <?php echo $row["Question3"]; ?></p><br>
+                <p>Question 1 : </p><br>
+                <p>Question 2 : </p><br>
+                <p>Question 3 : </p><br>
                 </div>
                 <div style="width:50%; float:left;">
-                <p>คำตอบคำถามที่ 1 : <?php echo $row["Ans1"]; ?></p><br>
-                <p>คำตอบคำถามที่ 2 : <?php echo $row["Ans2"]; ?></p><br>
-                <p>คำตอบคำถามที่ 3 : <?php echo $row["Ans3"]; ?></p><br>
+                <p>Answer 1 : </p><br>
+                <p>Answer 2 : </p><br>
+                <p>ANswer 3 : </p><br>
                 </div>
             </div>
             <div style="clear:both;">
                 <!---put img---->
-                <img src="<?php echo "SSN_img/".$row["FileSSN"].".jpg"; ?>" width="500px" height="400px" class="center">
+                <img src="images/1.jpg" width="500px" height="400px" class="center img-thumbnail">
             </div>
             <div style="clear:both; margin-top:20px;" class="center">
-             <button type="button" onclick="location.href='clickApprove.php?username=<?php echo $row["Username"]."&email=".$row["email"]; ?>';" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Approve</button>
-             <button type="button" onclick="location.href='clickDisapprove.php?username=<?php echo $row["Username"]."&email=".$row["email"]; ?>';" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Disapprove</button>
+             <button type="button" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Approve</button>
+             <button type="button" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Disapprove</button>
             </div>
           
-            
-            
-            
+            </div>
             
           </div>
         </div>
