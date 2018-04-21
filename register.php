@@ -114,7 +114,7 @@
 
 
    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a onclick="location.href='index.php'" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Home
   </a>
             <ul class="dropdown-menu" role="menu">

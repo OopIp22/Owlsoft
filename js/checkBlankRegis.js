@@ -4,6 +4,7 @@ function checkBlankRegis(){
     var username = document.getElementById("username").value;
     var CimgSSN = document.getElementById("SSNimage").value;
     var pass = document.getElementById("password").value;
+    var Cpass = document.getElementById("Conpassword").value;
     var date = document.getElementById("birthdate").value;
     var q1 = document.getElementById("sel1").value;
     var q2 = document.getElementById("sel2").value;
@@ -35,6 +36,11 @@ function checkBlankRegis(){
 
     if(pass == ""){
         document.getElementById("blank").innerHTML = "Please Input Password" ;
+        document.getElementById("ForSubmitPass").value="0";
+    }
+
+    if(Cpass == ""){
+        document.getElementById("blank").innerHTML = "Please Input Confirm Password" ;
         document.getElementById("ForSubmitPass").value="0";
     }
 

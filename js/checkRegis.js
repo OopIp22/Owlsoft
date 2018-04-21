@@ -6,7 +6,7 @@ function checkName(){
                 document.getElementById("alertName").innerHTML = "Please input your name";
                 document.getElementById("ForSubmitName").value="0";
             }else if(Fname == null){
-                document.getElementById("alertName").innerHTML = "Incorrect name please retry agian";
+                document.getElementById("alertName").innerHTML = "Incorrect name please retry again";
                 document.getElementById("ForSubmitName").value="0";
             }else{
                 document.getElementById("alertName").innerHTML = "";
@@ -60,7 +60,7 @@ function checkPassword(){
     var pass = document.getElementById("password").value;
     console.log("test");
     if(!pass.match(regex)){
-        document.getElementById("blank").innerHTML = "Please Input Password in A-Z,a-z,0-9,_,-" ;
+        document.getElementById("blank").innerHTML = "Please Input Password 16 character in A-Z,a-z,0-9,_,-" ;
         document.getElementById("ForSubmitPass").value="0";
     }else if(pass == ""){
         document.getElementById("blank").innerHTML = "Please Input Password" ;
@@ -75,7 +75,7 @@ function checkMatchpass(){
     var pass = document.getElementById("password").value;
     var Cpass = document.getElementById("Conpassword").value;
     if(pass != Cpass){
-       document.getElementById("blank1").innerHTML = "Comfirm password don't match password";
+       document.getElementById("blank1").innerHTML = "Confirm password don't match password";
         document.getElementById("ForSubmitcPass").value="0";
     }else{
          document.getElementById("blank1").innerHTML = "";

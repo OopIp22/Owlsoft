@@ -18,8 +18,6 @@
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear";
 	       }
-       
-                
 ?>
 <!DOCTYPE html>
 <html>
@@ -110,7 +108,7 @@
         <li>
           <div class="dropdown show">
        <li>
-           <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='index.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Home
               </a>
           </li>
@@ -120,7 +118,7 @@
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='manageuser.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Manage User
               </a>
           </li>
@@ -131,7 +129,23 @@
   </nav>
       <div id="page-content" class="single-page container">
     <div style="background-color:white; height:900px;">
-    
+        <h1>Notification</h1><br><br>
+         <?php
+                echo "<ul id='myList'>";
+               $result = $pdo->query("SELECT * FROM member WHERE Status = 'disapproved' ");
+               while($row = $result->fetch()){
+                   echo "<li>";
+                   echo "<h5 class='vid-name'>";
+                   echo "<a href='manageuser.php'>".$row["Name"]." Registered</a>";
+                   echo "</h5>";
+                   echo "<div class='info'>";
+                   echo "<h6> ";
+                   echo "<a href='#'> </a>";
+                   echo "</li>";
+               }
+                        echo "</ul>";
+               ?>       
+        
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box">

@@ -166,7 +166,7 @@
                       <div style='color: red;' id="alert"></div>
 					<input type="text" name="username" placeholder="Username" id="username">
 					<input type="password" name="pass" placeholder="Password" id="pass">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" >
 				  </form>
 					
 				  <div class="login-help info">
@@ -191,11 +191,11 @@
 
 
    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a onclick="location.href='index.php'" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Home
   </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">News &amp Announcement</a>
+                <li><a href="index.php">News &amp Announcement</a>
                 </li>
               
             </ul>
@@ -210,12 +210,12 @@
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Events
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                About us
               </a>
           </li>

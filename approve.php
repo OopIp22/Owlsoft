@@ -117,7 +117,7 @@
         <li>
           <div class="dropdown show">
        <li>
-           <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='index.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Home
               </a>
           </li>
@@ -127,7 +127,7 @@
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='manageuser.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Manage User
               </a>
           </li>
@@ -142,23 +142,23 @@
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box">
-            <div style="font-size:25px; margin:100px 100px 100px 100px">
+            <div style="font-size:20px; margin:100px 100px 100px 100px">
                 <p>Firstname - Lastname : <?php echo $row["Name"]; ?></p><br>
             <p>Username : <?php echo $row["Username"]; ?></p><br>
             <p>SSN/Passport ID : <?php echo $row["SSN"]; ?></p><br>
             <p>Birthday : <?php echo DateThai($row["Birthdate"]); ?></p><br>
-            <p>E-mail : <?php echo $row["email"]; ?></p><br>
+            <p>E-mail : <?php echo $row["Email"]; ?></p><br>
             <p>Question : </p><br>
             <div style="padding-left:50px; width:900px;">
                 <div style="width:50%; float:left;">
-                <p>Question 1 : </p><br>
-                <p>Question 2 : </p><br>
-                <p>Question 3 : </p><br>
+                <p>Question 1 : <?php echo $row["Question1"]; ?></p><br>
+                <p>Question 2 : <?php echo $row["Question2"]; ?></p><br>
+                <p>Question 3 : <?php echo $row["Question3"]; ?></p><br>
                 </div>
                 <div style="width:50%; float:left;">
-                <p>Answer 1 : </p><br>
-                <p>Answer 2 : </p><br>
-                <p>ANswer 3 : </p><br>
+                <p>Answer 1 : <?php echo $row["Ans1"]; ?></p><br>
+                <p>Answer 2 : <?php echo $row["Ans2"]; ?></p><br>
+                <p>ANswer 3 : <?php echo $row["Ans3"]; ?></p><br>
                 </div>
             </div>
             <div style="clear:both;">
@@ -166,8 +166,8 @@
                 <img src="images/1.jpg" width="500px" height="400px" class="center img-thumbnail">
             </div>
             <div style="clear:both; margin-top:20px;" class="center">
-             <button type="button" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Approve</button>
-             <button type="button" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:30px;">Disapprove</button>
+             <button type="button" class="btn btn-default" onclick="location.href='clickApprove.php?username=<?php echo $row["Username"]."&email=".$row["Email"]; ?>';" style="background-color:#AEE0A4; color:white; font-size:30px;">Approve</button>
+             <button type="button" class="btn btn-default" onclick="location.href='clickDisapprove.php?username=<?php echo $row["Username"]."&email=".$row["Email"]; ?>';" style="background-color:#AEE0A4; color:white; font-size:30px;">Disapprove</button>
             </div>
           
             </div>

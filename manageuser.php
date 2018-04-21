@@ -94,9 +94,6 @@
        <?php
         if (isset($_SESSION["username"])) {
 
-            echo "<a href='dashboard.php' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
-            echo "<a href='logout.php' style='float:right;'>Logout</a>";
-
             echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
 
@@ -112,7 +109,7 @@
         <li>
           <div class="dropdown show">
        <li>
-           <a class="btn btn-secondary dropdown-toggle" href="index.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='index.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Home
               </a>
           </li>
@@ -122,7 +119,7 @@
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" onclick="location.href='manageuser.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Manage User
               </a>
           </li>
@@ -133,22 +130,44 @@
   </nav>
       <div id="page-content" class="single-page container">
     <div style="background-color:white; height:900px;">
-    
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box">
-            <h3>Manage user</h3>
-            
-            <hr>
-            
-            <h3>Member</h3>
-            
-            
+            <h3>Manage user</h3><br>
+            <h6>Waiting List</h6>
+            <?php
+                echo "<ul id='myList'>";
+                $result = $pdo->query("SELECT * FROM member WHERE Status = 'disapproved' ");
+                $result2 = $pdo->query("SELECT * FROM member WHERE Status = 'member'");
+               while($row = $result->fetch()){
+                   echo "<li>";
+                   echo "<h5 class='vid-name'>";
+                   echo "<a href='approve.php?username=".$row["Username"]."'>".$row["Name"]."</a>";
+                   echo "</h5>";
+                   echo "<div class='info'>";
+                   echo "<h6> ";
+                   echo "<a href='#'> </a>";
+                   echo "</li>";
+               }
+                        echo "<hr>";
+            echo "<h6>Member</h6>";
+                echo "<ul id='myList'>";
+            while($row2 = $result2->fetch()){
+                   echo "<li>";
+                   echo "<h5 class='vid-name'>";
+                   echo "<h5>".$row2["Name"]."</h5>";
+                   echo "</h5>";
+                   echo "<div class='info'>";
+                   echo "<h6> ";
+                   echo "<a href='#'> </a>";
+                   echo "</li>";
+               }
+               ?>
           </div>
         </div>
     </div>
-          </div>
-      </div>
+</div>
+</div>
   <!-- JS -->
   <script src="owl-carousel/owl.carousel.js"></script>
   <script>
