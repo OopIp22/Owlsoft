@@ -149,7 +149,7 @@
   </nav>
   <!-- Header -->
   <!-- /////////////////////////////////////////Content -->
-  <div id="page-content" class="single-page container">
+  <div id="page-content" class="single-page container" >
     <div class="row">
       <div id="main-content" class="col-md-12">
         <div class="box" style="padding:40px 60px 40px 60px;">
