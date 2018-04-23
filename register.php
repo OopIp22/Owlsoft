@@ -157,7 +157,7 @@
             <h3>Registration</h3>
             <form action="insert_register.php" method="post" enctype="multipart/form-data" onsubmit="return CheckAll()">
             <div id="alertAll" style="color:red;"></div>
-            <div id="alertR" style="color:red;"></div>
+            <input type="text" id="ForSubmitSSNname" value="0" style="display:none;">
             <div class="form-group row">
                 <label class="col-2 col-form-label">First Name - Last Name</label>
                 <input type="text" id="ForSubmitName" value="0" style="display:none;">
@@ -304,7 +304,7 @@
 
                     
                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close" style="background-color:#AEE0A4; color:white; width: 20%; margin-left: 40%;
-margin-right: 40%"><a href="index.php" style="color:white;">OK</a></button>
+margin-right: 40%">OK</button>
                     
 
 

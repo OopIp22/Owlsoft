@@ -40,7 +40,7 @@ function checkBlankRegis(){
     }
 
     if(Cpass == ""){
-        document.getElementById("blank").innerHTML = "Please Input Confirm Password" ;
+        document.getElementById("blank1").innerHTML = "Please Input Confirm Password" ;
         document.getElementById("ForSubmitPass").value="0";
     }
 

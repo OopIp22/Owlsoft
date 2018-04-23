@@ -20,7 +20,7 @@ function Checknow() {
         console.log(xml.responseText);
         if(xml.responseText == "fail"){
             console.log("fail");
-            document.getElementById("alertCheckUser").innerHTML = "Username have been registed. Please retry.";
+            document.getElementById("alertCheckUser").innerHTML = "Username have been registered. Please retry.";
         }else{
              document.getElementById("alertCheckUser").innerHTML = "";
             document.getElementById("ForSubmitUsername").value="1";
@@ -57,7 +57,7 @@ function Checknow1() {
         console.log(xml1.responseText);
         if(xml1.responseText == "fail"){
             console.log("fail");
-            document.getElementById("alertEmail").innerHTML = "Email have been registed. Please retry.";
+            document.getElementById("alertEmail").innerHTML = "Email have been registered. Please retry.";
         }else{
             console.log("pass");
             document.getElementById("alertEmail").innerHTML = "";

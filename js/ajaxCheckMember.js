@@ -15,12 +15,12 @@ function getStatus(){
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
         if(xmlHttp.responseText == "fail"){
             console.log("fail");
-         document.getElementById("alertR").innerHTML = "You have reigsted.";  
-             document.getElementById("ForSubmitName").value="0";
+         document.getElementById("alertAll").innerHTML = "You have reigstered.";  
+             document.getElementById("ForSubmitSSNname").value="0";
         }else{
             console.log("pass");
-             document.getElementById("alertR").innerHTML = "";  
-            document.getElementById("ForSubmitName").value="1";
+             document.getElementById("alertAll").innerHTML = "";  
+            document.getElementById("ForSubmitSSNname").value="1";
         }
     }
 }
