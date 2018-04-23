@@ -84,16 +84,16 @@
 <body>
     <header style="margin:20px;">
    <div class="container">
-       <div class="col-md-10">
+       <div class="col-md-9">
              <img src="beauty-logo.png" height="100px" width="100px">
             <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
-    <div class="col-md-2" id="rightpanel">
+    <div class="col-md-3" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
 
 
-            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='#' style='float:right;'>สวัสดีคุณ ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
 
         }
@@ -129,8 +129,16 @@
   </nav>
       <div id="page-content" class="single-page container">
     <div style="background-color:white; height:900px;">
-        <h1>Notification</h1><br><br>
-         <?php
+        
+        
+    <div class="row">
+      <div id="main-content" class="col-md-12">
+        <div class="box">
+            <h1>Notification</h1>
+            <div id="userList" style="margin-left:50px;">
+            <h3>User</h3>
+                
+            <?php
                 echo "<ul id='myList'>";
                $result = $pdo->query("SELECT * FROM member WHERE Status = 'disapproved' ");
                while($row = $result->fetch()){
@@ -145,10 +153,9 @@
                }
                         echo "</ul>";
                ?>       
-        
-    <div class="row">
-      <div id="main-content" class="col-md-12">
-        <div class="box">
+            </div>
+            
+            
           </div>
         </div>
     </div>

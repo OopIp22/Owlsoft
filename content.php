@@ -109,14 +109,14 @@
 <body>
     <header style="margin:20px;">
    <div class="container">
-       <div class="col-md-10">
+       <div class="col-md-9">
              <img src="beauty-logo.png" height="100px" width="100px">
             <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
-    <div class="col-md-2" id="rightpanel">
+    <div class="col-md-3" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
-            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='#' style='float:right;'>สวัสดีคุณ ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
             echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
@@ -232,13 +232,14 @@
       </div>
   
     </div>
-  </div>
   <footer style="background-color:#3a2822">
     <div class="copy-right">
       <p>© Copyright
         <br>Contact : admin@kkumail.com </p>
     </div>
   </footer>
+  </div>
+ 
   <!-- Footer -->
   <!-- JS -->
   <script src="owl-carousel/owl.carousel.js"></script>

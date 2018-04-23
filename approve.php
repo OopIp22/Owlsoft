@@ -18,13 +18,11 @@
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear";
 	       }
-
     $username = $_GET['username'];
     $stmt = $pdo->prepare("SELECT * FROM member WHERE Username = ?");
     $stmt->bindParam(1, $username);
     $stmt->execute();
     $row = $stmt->fetch();
-                
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,15 +54,7 @@
   <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <style>
-   #myList li{ display:none;
-}
-#loadMore {
-    color:green;
-    cursor:pointer;
-}
-#loadMore:hover {
-    color:black;
-}
+
 *{
 	font-family: 'Kanit', sans-serif;
 }
@@ -96,14 +86,15 @@
 <body>
     <header style="margin:20px;">
    <div class="container">
-       <div class="col-md-10">
+       <div class="col-md-9">
              <img src="beauty-logo.png" height="100px" width="100px">
             <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
-    <div class="col-md-2" id="rightpanel">
+    <div class="col-md-3" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
-            echo "<a href='dashboard.php' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+
+            echo "<a href='#' style='float:right;'>สวัสดีคุณ ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }
             ?>
@@ -141,40 +132,47 @@
     
     <div class="row">
       <div id="main-content" class="col-md-12">
-        <div class="box">
-            <div style="font-size:20px; margin:100px 100px 100px 100px">
-                <p>Firstname - Lastname : <?php echo $row["Name"]; ?></p><br>
-            <p>Username : <?php echo $row["Username"]; ?></p><br>
+        <div class="box" style="padding-bottom:50px;">
+            <p>ชื่อ : <?php echo $row["Name"]; ?></p><br>
+            <p>username : <?php echo $row["Username"]; ?></p><br>
             <p>SSN/Passport ID : <?php echo $row["SSN"]; ?></p><br>
             <p>Birthday : <?php echo DateThai($row["Birthdate"]); ?></p><br>
             <p>E-mail : <?php echo $row["Email"]; ?></p><br>
-            <p>Question : </p><br>
+            <p>คำถาม : </p><br>
             <div style="padding-left:50px; width:900px;">
                 <div style="width:50%; float:left;">
-                <p>Question 1 : <?php echo $row["Question1"]; ?></p><br>
-                <p>Question 2 : <?php echo $row["Question2"]; ?></p><br>
-                <p>Question 3 : <?php echo $row["Question3"]; ?></p><br>
+                <p>คำถามที่ 1 : <?php echo $row["Question1"]; ?></p><br>
+                <p>คำถามที่ 2 : <?php echo $row["Question2"]; ?></p><br>
+                <p>คำถามที่ 3 : <?php echo $row["Question3"]; ?></p><br>
                 </div>
                 <div style="width:50%; float:left;">
-                <p>Answer 1 : <?php echo $row["Ans1"]; ?></p><br>
-                <p>Answer 2 : <?php echo $row["Ans2"]; ?></p><br>
-                <p>ANswer 3 : <?php echo $row["Ans3"]; ?></p><br>
+                <p>คำตอบคำถามที่ 1 : <?php echo $row["Ans1"]; ?></p><br>
+                <p>คำตอบคำถามที่ 2 : <?php echo $row["Ans2"]; ?></p><br>
+                <p>คำตอบคำถามที่ 3 : <?php echo $row["Ans3"]; ?></p><br>
                 </div>
             </div>
             <div style="clear:both;">
                 <!---put img---->
-                <img src="images/1.jpg" width="500px" height="400px" class="center img-thumbnail">
+                <img src="<?php echo "SSN_img/".$row["FileSSN"].".jpg"; ?>" width="500px" height="400px" class="center">
             </div>
             <div style="clear:both; margin-top:20px;" class="center">
-             <button type="button" class="btn btn-default" onclick="location.href='clickApprove.php?username=<?php echo $row["Username"]."&email=".$row["Email"]; ?>';" style="background-color:#AEE0A4; color:white; font-size:30px;">Approve</button>
-             <button type="button" class="btn btn-default" onclick="location.href='clickDisapprove.php?username=<?php echo $row["Username"]."&email=".$row["Email"]; ?>';" style="background-color:#AEE0A4; color:white; font-size:30px;">Disapprove</button>
+             <button type="button" onclick="location.href='clickApprove.php?username=<?php echo $row["Username"]."&email=".$row["email"]; ?>';" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:18px;">Approve</button>
+             <button type="button" onclick="location.href='clickDisapprove.php?username=<?php echo $row["Username"]."&email=".$row["email"]; ?>';" class="btn btn-default" style="background-color:#AEE0A4; color:white; font-size:18px;">Disapprove</button>
             </div>
           
-            </div>
+            
+            
+            
             
           </div>
         </div>
     </div>
+        <footer style="background-color:#3a2822">
+    <div class="copy-right">
+      <p>© Copyright
+        <br>Contact : admin@kkumail.com </p>
+    </div>
+  </footer>
           </div>
       </div>
   <!-- JS -->

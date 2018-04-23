@@ -137,14 +137,14 @@
 <body>
  <header style="margin-top:20px;">
    <div class="container">
-       <div class="col-md-10">
+       <div class="col-md-9">
              <img src="beauty-logo.png" height="100px" width="100px">
             <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
-    <div class="col-md-2" id="rightpanel">
+    <div class="col-md-" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
-            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='#' style='float:right;'>สวัสดีคุณ ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
         }else{
             echo "<a href='#' id='signin' style='float:right;' data-toggle='modal' data-target='#login-modal'>Sign In</a><br>";
@@ -166,7 +166,7 @@
                       <div style='color: red;' id="alert"></div>
 					<input type="text" name="username" placeholder="Username" id="username">
 					<input type="password" name="pass" placeholder="Password" id="pass">
-					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" >
+					<input type="submit" id="btn_submit" name="login" class="login loginmodal-submit" value="Sign In" disabled>
 				  </form>
 					
 				  <div class="login-help info">
@@ -191,11 +191,11 @@
 
 
    <div class="dropdown">
-        <a onclick="location.href='index.php'" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-secondary dropdown-toggle" onclick="location.href='index.php'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Home
   </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="index.php">News &amp Announcement</a>
+                <li><a href="#">News &amp Announcement</a>
                 </li>
               
             </ul>
@@ -210,12 +210,12 @@
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Events
               </a>
           </li>
            <li>
-           <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                About us
               </a>
           </li>
@@ -260,13 +260,13 @@
             <div class="box-header header-post">
               <h2 style="height:30px;">News &amp; Announcement</h2>
             </div>
-            <div class="box-content">
+            
               <div class="row">
                 <div class="col-md-12">
-                  <div class="post wrap-vid">
-                    <div class="wrapper">
+                  
+                   
                       
-                        <?php
+            <?php
                 echo "<ul id='myList'>";
                $result = $pdo->query("SELECT news_id,topic,date FROM beauty_community ORDER BY news_id DESC");
                while($row = $result->fetch()){
@@ -283,24 +283,21 @@
                         echo "</ul>";
                ?>       
                     <div id="loadMore">more</div>
-                    </div>
-                  </div>
+                    
+                
                   
                   </div>
                 </div>
-              </div>
+              
             </div>
           </div>
-          <div class="box"></div>
+         
         </div>
       </div>
-      <div id="sidebar">
-        <div class="col-md-3"></div>
-        <div class="col-md-3"></div>
-      </div>
+    
     </div>
   </div>
-  <footer style="background-color:#3a2822">
+  <footer style="background-color:#3a2822" class="container">
     <div class="copy-right">
       <p>© Copyright
         <br>Contact : admin@kkumail.com </p>

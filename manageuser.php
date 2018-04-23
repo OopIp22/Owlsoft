@@ -86,15 +86,15 @@
 <body>
     <header style="margin:20px;">
    <div class="container">
-       <div class="col-md-10">
+       <div class="col-md-9">
              <img src="beauty-logo.png" height="100px" width="100px">
             <div class="logo" style="display:inline; color:white;"><span style="font-size:50px;">ชุมชนคนรักสวยรักงาม</span></div>
        </div>
-    <div class="col-md-2" id="rightpanel">
+    <div class="col-md-3" id="rightpanel">
        <?php
         if (isset($_SESSION["username"])) {
 
-            echo "<a href='#' style='float:right;'>สวัสดี คุณ".$_SESSION["username"]."</a><br>";
+            echo "<a href='#' style='float:right;'>สวัสดีคุณ ".$_SESSION["username"]."</a><br>";
             echo "<a href='logout.php' style='float:right;'>Sign Out</a>";
 
         }
@@ -134,6 +134,7 @@
       <div id="main-content" class="col-md-12">
         <div class="box">
             <h3>Manage user</h3><br>
+            <div style="padding-left:60px;">
             <h6>Waiting List</h6>
             <?php
                 echo "<ul id='myList'>";
@@ -149,8 +150,14 @@
                    echo "<a href='#'> </a>";
                    echo "</li>";
                }
-                        echo "<hr>";
-            echo "<h6>Member</h6>";
+            ?>
+            </div>
+            <hr>
+            <div style="padding-left:60px">
+            
+            <?php
+                
+                echo "<h6>Member</h6>";
                 echo "<ul id='myList'>";
             while($row2 = $result2->fetch()){
                    echo "<li>";
@@ -163,6 +170,7 @@
                    echo "</li>";
                }
                ?>
+                </div>
           </div>
         </div>
     </div>
